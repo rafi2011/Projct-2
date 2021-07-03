@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     const Meals = mealData.map((Meal) => Meal.get({ plain: true }));
 
     res.render('homepage', { 
-      Meals, 
+      Meal, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
