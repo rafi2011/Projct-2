@@ -1,22 +1,22 @@
 const router = require('express').Router();
-const { Meal, User, Category } = require('../models');
-const withAuth  = require('../utils/auth');
+const { Meal, User, Category } = require('../../models');
+const withAuth  = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // const mealData = await Meal.findAll({
-    //   include: [
-    //     {
-    //       model: User,
-    //       model: Category,
-    //       attributes: ['name'],
-    //     },
-    //   ],
-    // });
+    const mealData = await Meal.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        // Category
+      ],
+    });
 
-    // const Meals = mealData.map((Meal) => Meal.get({ plain: true }));
+    const meals = mealData.map((Meal) => Meal.get({ plain: true }));
 
-    res.render('homepage');
+    res.render('homepage', {meals});
   } catch (err) {
     res.status(500).json(err.message);
   }
