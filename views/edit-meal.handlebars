@@ -2,19 +2,17 @@
   <h2>
     Edit Meal
   </h2>
-  <form class="edit-meal-form">
+  <form class="form edit-meal-form">
     <div class="form-outline mb-4">
       <input name="meal-name" id="meal-name" type="text" value="{{meal.name}}" class="form-control" />
     </div>
     <div class="form-outline mb-4">
-      <input class="form-control" name="meal-calories" type="number" id="meal-calories">{{meal.calories}}</input>
-    </div>
-    <div style="float:right">
-      Posted by you on {{meal.created_at}}
-      |
-      <a href="/meals/{{meal.id}}">meal</a>
+      <input class="form-control" name="meal-calories" type="number" id="meal-calories" value="{{meal.calories}}"/>
     </div>
     <button type="submit" class="btn btn-primary">Save changes</button>
     <button type="button" id="delete-meal-btn" class="btn btn-primary">Delete meal</button>
   </form>
 </div>
+
+<script src="/js/edit.js"></script>
+<script src="/js/delete.js"></script>

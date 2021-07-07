@@ -38,7 +38,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     attributes: [
       'id',
       'name',
-      'calories',
+      'calories'
     ],
     include: [
       {

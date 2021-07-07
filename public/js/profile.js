@@ -44,3 +44,4 @@ document
 document
   .querySelector('.meal-list')
   .addEventListener('click', delButtonHandler);
+

@@ -22,7 +22,6 @@ router.get('/', async (req, res) => {
 
     res.render('homepage',{
       meals,
-      user,
       logged_in: req.session.logged_in
     } );
   } catch (err) {
@@ -30,7 +29,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/Meal/:id', async (req, res) => {
+router.get('/meals/:id', async (req, res) => {
   try {
     const mealData = await Meal.findOne({
       where: {
@@ -64,24 +63,6 @@ router.get('/Meal/:id', async (req, res) => {
   res.status(500).json(err);
   }
 });
-
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Meal }],
-//     });
- 
-//     const user = userData.get({ plain: true });
-
-//     res.render('profile', {
-//       ...userData,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {

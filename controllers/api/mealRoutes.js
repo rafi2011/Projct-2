@@ -63,6 +63,27 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', withAuth, (req, res) => {
+  Meal.update(req.body,
+      {
+          where: {
+              id: req.params.id
+          }
+      }
+  )
+  .then(mealData => {
+      if (!mealData) {
+          res.status(404).json({ message: 'No meal found with this id' });
+          return;
+      }
+      res.json(mealData);
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err)
+  });
+});
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const mealData = await Meal.destroy({
