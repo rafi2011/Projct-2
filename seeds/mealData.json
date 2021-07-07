@@ -1,15 +1,18 @@
 [
   {
     "name": "burger",
-    "calories": 325
+    "calories": 325,
+    "email": "test@email.com"
   },
   {
     "name": "salad",
-    "calories": 100
+    "calories": 100,
+    "email": "test@email.com"
   },
   {
     "name": "fries",
-    "calories": 150
+    "calories": 150,
+    "email": "test@email.com"
   }
 ]
 
