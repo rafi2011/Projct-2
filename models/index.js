@@ -2,12 +2,18 @@ const User = require('./User');
 const Meal = require('./Meal');
 
 // User to Meal
-
+User.hasMany(Meal, {
+  foreignKey: 'user_id',
+  onDelete: 'cascade',
+  hooks:true
+});
 
 // Meal to User
-Meal.belongsToMany(User, {
-  through: 'UserMeal'
+Meal.belongsTo(User, {
+  foreignKey: "user_id"
 });
+
+Meal.
 
 
 module.exports = { Meal, User };

@@ -1,25 +1,21 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <h2>Welcome, {{meals.[0].user.name}}!</h2>
   </div>
 </div>
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create a New Meal:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-meal-form">
       <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="project-name">meal name:</label>
+        <input class="form-input" type="text" id="meal-name" name="meal-name" />
       </div>
       <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="meal-calories">meal calories:</label>
+        <input class="form-input" type="number" id="meal-calories" name="meal-calories" />
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -27,20 +23,31 @@
     </form>
   </div>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
-
-    {{#each projects as |project|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
+  {{#if meals.length}}
+  <div class="col-md-6 meal-list">
+    <h3>My meals:</h3>
+      <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Meal</th>
+          <th scope="col">User</th>
+          <th scope="col">Calories</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+        {{#each meals as |meal|}}
+          <tbody>
+            <tr>
+              <th scope="row">{{meal.id}}</th>
+              <td><a href="/profile/edit/{{meal.id}}">{{meal.name}}</a></td>
+              <td>{{meal.user.name}}</td>
+              <td>{{meal.calories}}</td>
+              <td><button class="btn btn-sm btn-danger" data-id="{{meal.id}}">DELETE</button></td>
+            </tr>
+          </tbody>
+        {{/each}}
+      </table>
   </div>
   {{/if}}
 </div>

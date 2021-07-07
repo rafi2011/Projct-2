@@ -1,6 +1,54 @@
 const router = require('express').Router();
-const { Meal } = require('../../models');
+const { Meal, User } = require('../../models');
+const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
+
+router.get("/", withAuth, async (req, res) => {
+  try{
+    const mealData = Meal.findAll({
+    attribute:[
+      "id",
+      "name",
+      "calories"
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ["name"]
+      }
+    ]
+  })
+
+  res.json(mealData);
+  } catch(err){
+    res.status(500).json(err);
+  }
+});
+
+router.get("/:id", withAuth, async (req, res) => {
+  try{
+    const mealData = Meal.findOne({
+      where: {
+        id: req.params.id
+      },
+      attribute:[
+        "id",
+        "name",
+        "calories"
+      ],
+      include: [
+        {
+          model: User,
+          attributes: ["name"]
+        }
+      ]
+  })
+
+  res.json(mealData);
+  } catch(err){
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {
