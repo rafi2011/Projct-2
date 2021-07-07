@@ -13,7 +13,7 @@ Meal.belongsTo(User, {
   foreignKey: "user_id"
 });
 
-Meal.
+
 
 
 module.exports = { Meal, User };
