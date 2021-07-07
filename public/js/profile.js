@@ -3,12 +3,11 @@ const newFormHandler = async (event) => {
 
   const name = document.querySelector('#meal-name').value.trim();
   const calories = document.querySelector('#meal-calories').value.trim();
-  const email = document.querySelector('#meal-email').value.trim();
 
-  if (name && calories && email) {
+  if (name && calories) {
     const response = await fetch(`/api/meals`, {
       method: 'POST',
-      body: JSON.stringify({ name, calories, email }),
+      body: JSON.stringify({ name, calories }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -31,7 +30,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/meals');
+      document.location.replace('/profile');
     } else {
       alert('Failed to delete meals');
     }

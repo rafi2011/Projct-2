@@ -15,9 +15,6 @@ const PORT = process.env.PORT || 3001;
 // create a handlebars template instance with the default options from the library
 const hbs = exphbs.create({});
 
-
-
-
 // the express app will have the engine from the handlebars instance
 app.engine('handlebars', hbs.engine);
 // start using engine

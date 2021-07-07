@@ -3,7 +3,6 @@ const { Meal, User } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-
 router.get("/", withAuth, async (req, res) => {
   try{
     const mealData = Meal.findAll({
