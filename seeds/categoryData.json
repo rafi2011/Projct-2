@@ -1,0 +1,14 @@
+[
+  {
+    "type": "Breakfast"
+  },
+  {
+    "type": "Lunch"
+  },
+  {
+    "type": "Dinner"
+  },
+  {
+    "type": "Snack"
+  }
+]

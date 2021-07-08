@@ -15,6 +15,10 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Category,
+          attributes: ["type"]
+        },
       ],
     });
 
@@ -44,6 +48,10 @@ router.get('/meals/:id', async (req, res) => {
         {
           model: User,
           attributes: ['name'],
+        },
+        {
+          model: Category,
+          attributes: ["type"]
         },
       ],
     })

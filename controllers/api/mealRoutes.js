@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Meal, User } = require('../../models');
+const { Meal, User, Category } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
@@ -15,7 +15,11 @@ router.get("/", withAuth, async (req, res) => {
       {
         model: User,
         attributes: ["name"]
-      }
+      },
+      {
+        model: Category,
+        attributes: ["type"]
+      },
     ]
   })
 
@@ -40,7 +44,11 @@ router.get("/:id", withAuth, async (req, res) => {
         {
           model: User,
           attributes: ["name"]
-        }
+        },
+        {
+          model: Category,
+          attributes: ["type"]
+        },
       ]
   })
 

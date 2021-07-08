@@ -17,7 +17,11 @@ router.get('/', withAuth, (req, res) => {
         {
           model: User,
           attributes: ['name']
-        }
+        },
+        {
+          model: Category,
+          attributes: ["type"]
+        },
       ]
     })
       .then(mealData => {
@@ -44,7 +48,11 @@ router.get('/edit/:id', withAuth, (req, res) => {
       {
         model: User,
         attributes: ['name']
-      }
+      },
+      {
+        model: Category,
+        attributes: ["type"]
+      },
     ]
   })
     .then(mealData => {

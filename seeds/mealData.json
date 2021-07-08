@@ -1,15 +1,34 @@
 [
   {
-    "name": "burger",
-    "calories": 325
+    "name": "Burger",
+    "calories": 325,
+    "category_id": 2
   },
   {
-    "name": "salad",
-    "calories": 100
+    "name": "Salad",
+    "calories": 100,
+    "category_id": 2
   },
   {
-    "name": "fries",
-    "calories": 150
+    "name": "Fries",
+    "calories": 150,
+    "category_id": 4
+  },
+  {
+    "name": "Cereal",
+    "calories": 200,
+    "category_id": 1
+  },
+  {
+    "name": "Egg Sandwich",
+    "calories": 400,
+    "category_id": 1
+  },
+  {
+    "name": "Chicken Tacos",
+    "calories": 500,
+    "category_id": 2
   }
+  
 ]
 

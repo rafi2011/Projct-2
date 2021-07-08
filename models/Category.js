@@ -12,16 +12,9 @@ Category.init(
       autoIncrement: true,
     },
     type: {
-      type: DataTypes.String,
+      type: DataTypes.STRING,
       allowNull: false,
-    },
-    meal_id: {
-      type: DataTypes.INTEGER,
-      references: {
-          model: 'meal',
-          key: 'id'
-      }
-  }
+    }
   },
   {
     sequelize,
