@@ -17,6 +17,18 @@
         <label for="meal-calories">meal calories:</label>
         <input class="form-input" type="number" id="meal-calories" name="meal-calories" />
       </div>
+      {{#if categories.length}}
+        <div class="form-group">
+          <label for="category-choice">meal category:</label>
+          <select name="category-choice" class="form-control" id="category-choice">
+        {{#each categories as |category|}}
+        
+            <option value="{{category.id}}">{{category.type}}</option>
+
+        {{/each}}
+          </select>
+        </div>
+      {{/if}}
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
       </div>

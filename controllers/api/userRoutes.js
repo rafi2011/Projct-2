@@ -1,20 +1,24 @@
 const router = require('express').Router();
+const validator = require('validator');
 const { User } = require('../../models');
 const withAuth  = require('../../utils/auth');
 
 
 router.post('/', async (req, res) => {
   try {
-    console.log("test");
-    const userData = await User.create(req.body);
+    if(validator.isEmail(req.body.email)){
+      const userData = await User.create(req.body);
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
 
-      res.status(200).json(userData);
-    });
+        res.status(200).json(userData);
+      });
+    } else alert("Please enter a proper email");
   } catch (err) {
+    if(validator.isEmail(req.body.email))
+      alert("no email");
     res.status(400).json(err);
   }
 });
