@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Meal, User } = require('../../models');
+const { Meal, User, Category } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
@@ -15,7 +15,11 @@ router.get("/", withAuth, async (req, res) => {
       {
         model: User,
         attributes: ["name"]
-      }
+      },
+      {
+        model: Category,
+        attributes: ["type"]
+      },
     ]
   })
 
@@ -40,7 +44,11 @@ router.get("/:id", withAuth, async (req, res) => {
         {
           model: User,
           attributes: ["name"]
-        }
+        },
+        {
+          model: Category,
+          attributes: ["type"]
+        },
       ]
   })
 
@@ -61,6 +69,27 @@ router.post('/', withAuth, async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
+});
+
+router.put('/:id', withAuth, (req, res) => {
+  Meal.update(req.body,
+      {
+          where: {
+              id: req.params.id
+          }
+      }
+  )
+  .then(mealData => {
+      if (!mealData) {
+          res.status(404).json({ message: 'No meal found with this id' });
+          return;
+      }
+      res.json(mealData);
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err)
+  });
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
