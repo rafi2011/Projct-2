@@ -4,11 +4,12 @@ const newFormHandler = async (event) => {
   const name = document.querySelector('#meal-name').value.trim();
   const calories = document.querySelector('#meal-calories').value.trim();
   const category = document.querySelector('#category-choice').value.trim();
+  const mealDate = document.querySelector('#meal-date').value.trim();
 
-  if (name && calories && category) {
+  if (name && calories && category && mealDate) {
     const response = await fetch(`/api/meals`, {
       method: 'POST',
-      body: JSON.stringify({ name, calories, category}),
+      body: JSON.stringify({ name, calories, category, mealDate}),
       headers: {
         'Content-Type': 'application/json',
       },

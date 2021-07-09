@@ -2,32 +2,38 @@
   {
     "name": "Burger",
     "calories": 325,
-    "category_id": 2
+    "category_id": 2,
+    "mealDate": "07/08/2021"
   },
   {
     "name": "Salad",
     "calories": 100,
-    "category_id": 2
+    "category_id": 2,
+    "mealDate": "07/08/2021"
   },
   {
     "name": "Fries",
     "calories": 150,
-    "category_id": 4
+    "category_id": 4,
+    "mealDate": "07/08/2021"
   },
   {
     "name": "Cereal",
     "calories": 200,
-    "category_id": 1
+    "category_id": 1,
+    "mealDate": "07/08/2021"
   },
   {
     "name": "Egg Sandwich",
     "calories": 400,
-    "category_id": 1
+    "category_id": 1,
+    "mealDate": "07/08/2021"
   },
   {
     "name": "Chicken Tacos",
     "calories": 500,
-    "category_id": 2
+    "category_id": 2,
+    "mealDate": "07/08/2021"
   }
   
 ]

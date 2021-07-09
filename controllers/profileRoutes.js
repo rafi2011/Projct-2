@@ -45,6 +45,7 @@ router.get('/', withAuth, async (req, res) => {
         'id',
         'name',
         'calories',
+        'mealDate'
       ],
       include: [
         {
@@ -82,7 +83,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
     attributes: [
       'id',
       'name',
-      'calories'
+      'calories',
+      'mealDate'
     ],
     include: [
       {

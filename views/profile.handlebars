@@ -17,6 +17,10 @@
         <label for="meal-calories">meal calories:</label>
         <input class="form-input" type="number" id="meal-calories" name="meal-calories" />
       </div>
+      <div class="form-group">
+        <label for="meal-date">meal date:</label>
+        <input class="form-input" type="date" id="meal-date" name="meal-date" />
+      </div>
       {{#if categories.length}}
         <div class="form-group">
           <label for="category-choice">meal category:</label>
@@ -41,18 +45,18 @@
       <table class="table table-dark">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Date</th>
           <th scope="col">Meal</th>
-          <th scope="col">User</th>
+          <th scope="col">Category</th>
           <th scope="col">Calories</th>
         </tr>
       </thead>
         {{#each meals as |meal|}}
           <tbody>
             <tr>
-              <th scope="row">{{meal.id}}</th>
+              <td>{{meal.mealDate}}</td>              
               <td><a href="/profile/edit/{{meal.id}}">{{meal.name}}</a></td>
-              <td>{{meal.user.name}}</td>
+              <td>{{meal.category.type}}</td>
               <td>{{meal.calories}}</td>
               <td><button class="btn btn-sm btn-danger" data-id="{{meal.id}}">DELETE</button></td>
             </tr>
