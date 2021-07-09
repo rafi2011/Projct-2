@@ -41,6 +41,18 @@
 
   {{#if meals.length}}
   <div class="col-md-6 meal-list">
+    <div class="filter-form">
+      <form class="form filter-form">
+      <div class="form-group">
+        <label for="filter-date">Filter Date</label>
+        <input class="form-input" type="date" id="filter-date" name="filter-date" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Filter</button>
+      </div>
+    </form>
+    </div>
+    
     <h3>My meals:</h3>
       <table class="table table-dark">
       <thead>

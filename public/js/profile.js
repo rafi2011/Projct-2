@@ -39,6 +39,16 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const filterHandler = async (event) => {
+  event.preventDefault();
+
+  const filterDate = document.querySelector('#filter-date').value.trim();
+  
+  document.location.replace(`/profile/filter/${filterDate}`);
+
+    
+};
+
 document
   .querySelector('.new-meal-form')
   .addEventListener('submit', newFormHandler);
@@ -46,4 +56,8 @@ document
 document
   .querySelector('.meal-list')
   .addEventListener('click', delButtonHandler);
+
+document
+  .querySelector('.filter-form')
+  .addEventListener('submit', filterHandler);
 
