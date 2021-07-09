@@ -9,7 +9,8 @@ router.get("/", withAuth, async (req, res) => {
     attribute:[
       "id",
       "name",
-      "calories"
+      "calories",
+      "mealDate"
     ],
     include: [
       {
@@ -38,7 +39,8 @@ router.get("/:id", withAuth, async (req, res) => {
       attribute:[
         "id",
         "name",
-        "calories"
+        "calories",
+        "mealDate"
       ],
       include: [
         {
@@ -63,6 +65,7 @@ router.post('/', withAuth, async (req, res) => {
     const newMeal = await Meal.create({
       name: req.body.name,
       calories: req.body.calories,
+      mealDate: req.body.mealDate,
       user_id: req.session.user_id,
       category_id: req.body.category
     });

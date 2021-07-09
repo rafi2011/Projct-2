@@ -19,6 +19,10 @@ Meal.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    mealDate: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
