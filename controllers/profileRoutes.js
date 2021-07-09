@@ -36,6 +36,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const meals = mealData.map(meal => meal.get({ plain: true }));
     const categories = categoryData.map((Category) => Category.get({ plain: true }));
+
     res.render('profile', { meals, categories, logged_in: true });
   }catch(err){
     console.log(err);
