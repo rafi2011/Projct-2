@@ -3,6 +3,7 @@ const express = require('express');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
+const validator = require("validator");
 const session = require('./utils/sessions')
 const exphbs = require('express-handlebars');
 const morgan = require('morgan');
@@ -24,6 +25,7 @@ app.set('view engine', 'handlebars');
 app.use(logger);
 
 app.use(session);
+
 
 
 app.use(express.json());

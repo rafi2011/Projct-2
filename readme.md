@@ -31,7 +31,7 @@ A web application that allows users to login and enter in meal data (meal name, 
 - <KBD>npm run start</KBD>
 
 ## Credits:
-Built by: Alex Ortiz, Pravmukhi, Junior Mizhquiri and Rafiun Nessa.
+Built by: Alex Ortiz, Pravesh Mukhi, Junior Mizhquiri and Rafiun Nessa.
 
 
 ## Link to Page: 

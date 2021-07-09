@@ -60,12 +60,3 @@ document
 document
   .querySelector('.filter-form')
   .addEventListener('submit', filterHandler);
-
-Handlebars.registerHelper("sum_calories", function(meals) {
-    
-      var sum = 0;
-      for(var i = 0; i < meals.length; i++){
-        sum+=meals[i].calories;
-      }
-    return sum
-  });
