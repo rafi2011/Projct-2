@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const session = require('./utils/sessions')
 const exphbs = require('express-handlebars');
@@ -13,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 
 // create a handlebars template instance with the default options from the library
-const hbs = exphbs.create({});
+const hbs = exphbs.create({helpers});
 
 // the express app will have the engine from the handlebars instance
 app.engine('handlebars', hbs.engine);

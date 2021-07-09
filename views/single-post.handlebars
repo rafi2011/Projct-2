@@ -1,0 +1,22 @@
+{{> post-info post}}
+
+{{#if logged_in}}
+<form class="comment-form">
+  <div class="form-outline mb-4">
+    <textarea class="form-control" name="comment-body"></textarea>
+  </div>
+
+  <div >
+    <button type="submit" class="btn btn-primary" >Add comment</button>
+  </div>
+</form>
+
+<br> 
+
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if logged_in}}
+<script src="/js/comment.js"></script>
+{{/if}}

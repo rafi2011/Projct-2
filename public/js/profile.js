@@ -39,6 +39,16 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const filterHandler = async (event) => {
+  event.preventDefault();
+
+  const filterDate = document.querySelector('#filter-date').value.trim();
+  
+  document.location.replace(`/profile/filter/${filterDate}`);
+
+    
+};
+
 document
   .querySelector('.new-meal-form')
   .addEventListener('submit', newFormHandler);
@@ -47,3 +57,15 @@ document
   .querySelector('.meal-list')
   .addEventListener('click', delButtonHandler);
 
+document
+  .querySelector('.filter-form')
+  .addEventListener('submit', filterHandler);
+
+Handlebars.registerHelper("sum_calories", function(meals) {
+    
+      var sum = 0;
+      for(var i = 0; i < meals.length; i++){
+        sum+=meals[i].calories;
+      }
+    return sum
+  });
