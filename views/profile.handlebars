@@ -75,9 +75,8 @@
           </tbody>
         {{/each}}
       </table>
-      {{#sum_calories meals}}
-      <h3>Calories: {{this}}</h3>
-      {{/sum_calories}}
+      <h3>Total Calories: {{#sum_calories meals}} {{this}} {{/sum_calories}}</h3> 
+      
   </div>
   {{/if}}
 </div>
