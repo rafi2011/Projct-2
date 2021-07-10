@@ -373,6 +373,7 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  text-align: center;
 }
 
 h2 {
@@ -1702,4 +1703,8 @@ form [type='radio'] {
   .align-content-center-xl {
     align-content: center;
   }
+}
+
+* {
+  text-align: center;
 }
