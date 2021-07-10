@@ -6,19 +6,26 @@ const withAuth  = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
   try {
-    if(validator.isEmail(req.body.email)){
-      const userData = await User.create(req.body);
 
-      req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
+    const validEmail = await validator.isEmail(req.body.email);
 
-        res.status(200).json(userData);
-      });
-    } else alert("Please enter a proper email");
+    if(!validEmail){
+      res
+        .status(400)
+        .json({message: "Not a valid email"});
+      console.log("not a valid email");
+        return;
+    }
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
+
   } catch (err) {
-    if(validator.isEmail(req.body.email))
-      alert("no email");
     res.status(400).json(err);
   }
 });
@@ -50,8 +57,17 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .alert('Incorrect email or password, please try again');
       return;
+    }
+
+    const validEmail = await validator.isEmail(req.body.email);
+
+    if(!validEmail){
+      res
+        .status(400)
+        .json({message: "Not a valid email"});
+        return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
